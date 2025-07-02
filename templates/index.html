@@ -1,0 +1,39 @@
+{%extends 'base.html'%}
+{%block head%}
+<title> Patiets fill-up form </title>
+{%endblock%}
+
+{%block body%}
+<h1>Patients fill up form</h1>
+<div class="patient_form">
+    <form action="/" method="POST">
+        <input type="text" name="patient_name" id="patient_name" placeholder="Name of patient" required="required">
+        <input type="number" name="patient_age" id="patient_age" required="required">
+        <input type="email" name="patient_email" id ="patient_email">
+        <button type="submit">Submit</button>
+    </form>
+</div>
+<table>
+    <thead>
+        <tr>
+            <th>Patient_Id</th>
+            <th>Name</th>
+            <th>Age</th>
+            <th>Email</th>
+            <th>Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {%for patient in patient%}
+        <tr>
+            <td>{{patient[0]}}</td>
+            <td> <a href="patient/{{patient[0]}}">{{patient[1]}}</a></td>
+            <td>{{patient[2]}}</td>
+            <td>{{patient[3]}}</td>
+            <td><a href="delete/{{patient[0]}}"><button>Delete</button></a></td>
+            <td><a href="edit/{{patient[0]}}"><button>Edit</button></a></td>
+        </tr>
+        {%endfor%}
+    </tbody>
+</table>
+{%endblock%}

@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{%block head%}
+<title> Update {{patient[1]}}  Details</title>
+{%endblock%}
+
+{%block body%}
+<h1>Patients updated form</h1>
+<div class="patient_form">
+    <form action="/edit/{{patient[0]}}" method="POST">
+        <input type="text" name="patient_name" id="patient_name"  value="{{patient[1]}}" required="required">
+        <input type="number" name="patient_age" id="patient_age" value="{{patient[2]}}" required="required">
+        <input type="email" name="patient_email" id ="patient_email" value="{{patient[3]}}" >
+        <button type="submit">Done</button>
+    </form>
+</div>
+{%endblock%}
